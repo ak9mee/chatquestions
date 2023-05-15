@@ -1,45 +1,37 @@
-const questions = [
-  {
-    text: "What is your name?",
-    response: "My name is ChatGPT. How can I assist you?"
-  },
-  {
-    text: "What is your favorite color?",
-    response: "As an AI, I don't have the ability to have preferences."
-  },
-  {
-    text: "Can you help me with JavaScript?",
-    response: "Sure! What do you need help with?"
-  }
-];
+// Define the bot's responses to each question
+var responses = {
+  1: "Our hours are 9am to 5pm, Monday through Friday.",
+  2: "Our return policy allows for returns within 30 days of purchase, with a receipt.",
+  3: "You can contact our customer support team by phone at 1-800-555-5555 or by email at support@example.com."
+};
 
+// Add a new message to the chat log
+function addToChatLog(sender, message) {
+  var chatLog = document.querySelector(".chatlog");
+  var newMessage = document.createElement("p");
+  newMessage.classList.add(sender);
+  newMessage.textContent = message;
+  chatLog.appendChild(newMessage);
+}
+
+// Generate a response from the bot based on the selected question
+function getBotResponse(question) {
+  var response = responses[question];
+  if (response) {
+    addToChatLog("bot", response);
+  } else {
+    addToChatLog("bot", "I'm sorry, I don't understand that question.");
+  }
+}
+
+// Handle the "Send" button click
 function send() {
-  const input = document.getElementById("userinput");
-  const message = input.value.trim();
-
-  if (message) {
-    const chatlog = document.querySelector(".chatlog");
-    const userMessage = document.createElement("p");
-    userMessage.classList.add("user");
-    userMessage.textContent = message;
-    chatlog.appendChild(userMessage);
-
-    const response = document.createElement("p");
-    response.classList.add("bot");
-
-    for (let i = 0; i < questions.length; i++) {
-      if (message.toLowerCase().includes(questions[i].text.toLowerCase())) {
-        response.textContent = questions[i].response;
-        break;
-      } else {
-        response.textContent = "I'm sorry, I didn't understand your question.";
-      }
-    }
-
-    chatlog.appendChild(response);
-    input.value = "";
-    chatlog.scrollTop = chatlog.scrollHeight;
-  }
+  var dropdown = document.getElementById("dropdown");
+  var question = dropdown.options[dropdown.selectedIndex].value;
+  var userInput = document.getElementById("userinput").value;
+  addToChatLog("user", userInput);
+  getBotResponse(question);
+  document.getElementById("userinput").value = "";
 }
 
 document.getElementById("userinput").addEventListener("keyup", function(event) {
