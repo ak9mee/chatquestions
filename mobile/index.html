@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbox</title>
+  <style>
+    /* Mobile styles */
+    @media only screen and (max-width: 600px) {
+      .chatbox {
+        width: 100%;
+        height: 100vh;
+      }
+
+      .chatlog {
+        height: calc(100% - 60px);
+      }
+
+      .chatinput {
+        height: 60px;
+      }
+
+      .chatinput select,
+      .chatinput input,
+      .chatinput button {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="chatbox">
+    <div class="chatlog">
+      <p class="bot">Hi! How can I help you today?</p>
+    </div>
+    <div class="chatinput">
+      <select id="dropdown">
+        <option value="">Choose a question...</option>
+        <option value="1">What are your hours?</option>
+        <option value="2">What is your return policy?</option>
+        <option value="3">How can I contact customer support?</option>
+      </select>
+      <input type="text" id="userinput" placeholder="Type your message here" disabled>
+      <button type="button" onclick="send()">Send</button>
+    </div>
+  </div>
+  <script src="https://ak9mee.github.io/chatquestions/script.js"></script>
+</body>
+</html>
