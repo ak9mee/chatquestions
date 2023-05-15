@@ -1,0 +1,38 @@
+.chatbox {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 300px;
+  height: 400px;
+  overflow: auto;
+}
+
+.chatlog {
+  padding: 10px;
+}
+
+.chatlog p {
+  margin: 0 0 10px;
+}
+
+.chatlog .user {
+  text-align: right;
+  font-weight: bold;
+}
+
+.chatlog .bot {
+  text-align: left;
+  font-style: italic;
+}
+
+.chatinput {
+  padding: 10px;
+}
+
+.chatinput input {
+  width: 80%;
+  margin-right: 10px;
+}
+
+.chatinput button {
+  width: 20%;
+}
