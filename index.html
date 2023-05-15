@@ -20,6 +20,11 @@
       <input type="text" id="userinput" placeholder="Type your message here" disabled>
       <button type="button" onclick="send()">Send</button>
     </div>
+    <script>
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        window.location.href = "https://www.ak9mee.github.io/chatquestions/mobile/";
+      }
+    </script>
   </div>
   <script src="js/script.js"></script>
 </body>
